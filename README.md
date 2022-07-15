@@ -1,6 +1,6 @@
 # Volt
 Public Implementation of 
-*Volatility Based Kernels and Moving Average Means for Accurate Forecasting with Gaussian Processes* [link] 
+[*Volatility Based Kernels and Moving Average Means for Accurate Forecasting with Gaussian Processes*](https://arxiv.org/abs/2207.06544)
 
 by [Gregory Benton](https://g-benton.github.io/), [Wesley Maddox](https://wjmaddox.github.io), and [Andrew Gordon Wilson](https://cims.nyu.edu/~andrewgw/).
 
@@ -8,7 +8,7 @@ Please cite our work if you find it useful:
 
 ```
 @inproceedings{benton2022volatility,
-  title={olatility Based Kernels and Moving Average Means for Accurate Forecasting with Gaussian Processes},
+  title={Volatility Based Kernels and Moving Average Means for Accurate Forecasting with Gaussian Processes},
   author={Benton, Gregory and Maddox, Wesley and Wilson, Andrew Gordon Gordon},
   booktitle={International Conference on Machine Learning},
   year={2022},
