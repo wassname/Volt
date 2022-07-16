@@ -10,7 +10,7 @@ def GetStockData(symbols, interval='day', span='5year'):
     load_dotenv()
     username = os.getenv("robinhood_username")
     password = os.getenv("robinhood_password")
-    r.login(username, password);
+    r.login(username, password)
     
     data = pd.DataFrame(r.stocks.get_stock_historicals(symbols, interval, span))
     data['date'] = pd.to_datetime(data['begins_at'], format='%Y-%m-%d').dt.date
