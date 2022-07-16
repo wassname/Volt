@@ -14,19 +14,13 @@ warnings.simplefilter("ignore", NumericalWarning)
 
 def main(args):
     
-    
-    ticker_file = args.ticker_fname + ".txt"
+    data_path = "../../voltron/data/"
+    ticker_file = data_path + args.ticker_fname + ".txt"
     tckr_list = make_ticker_list(ticker_file)
-    
-    if args.end_date.lower() == "none":
-        end_date = datetime.date.today()
-    else:
-            end_date = datetime.datetime.strptime(args.end_date, "%Y-%m-%d")
-    
 
     for tckr in tckr_list:
 #         try:
-        data = GetStockHistory(tckr, history=args.ntrain + args.lookback)
+        data = GetStockHistory(tckr, end_date=args.end_date, history=args.ntrain + args.lookback)
         if args.kernel.lower() == 'volt':
             GenerateStockPredictions(tckr, data, forecast_horizon=args.forecast_horizon,
                                     train_iters=args.train_iters, 
@@ -92,7 +86,7 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--end_date",
-        default="none",
+        default=None,
     )
     parser.add_argument(
         "--lookback",

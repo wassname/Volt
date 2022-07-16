@@ -34,10 +34,13 @@ def DataGetter(history = 500, fpath="../data/", printing=False, end_date=None,
     tickers = make_ticker_list(fpath + ticker_file)
     make_price_files(tickers, start_date, end_date, fpath, printing)
     
-def GetStockHistory(ticker, end_date=str(datetime.date.today()), history=500):
-    end_date = datetime.datetime.strptime(end_date, "%Y-%m-%d").date()
+def GetStockHistory(ticker, end_date=None, history=500):
+    if end_date is None:
+        end_date = pd.Timestamp.now().floor('D') - pd.Timedelta('1d')
+    else:
+        end_date = pd.Timestamp(end_date)
     data = yf.download(tickers=ticker, period='10y', progress=False)
-    end_idx = np.where(data.index == pd.to_datetime(end_date))[0][0]
+    end_idx = np.where(data.index == end_date)[0][0]
     
     return data.iloc[end_idx-history:end_idx]
     

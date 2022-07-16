@@ -25,15 +25,10 @@ def main(args):
     ntrain = args.ntrain
     seq_len = args.seq_length
     
-    if args.end_date.lower() == "none":
-        end_date = datetime.date.today()
-    else:
-        end_date = datetime.datetime.strptime(args.end_date, "%Y-%m-%d")
-    
 
     for tckr in tckr_list:
         try:
-            data = GetStockHistory(tckr, history= ntrain + args.lookback)
+            data = GetStockHistory(tckr, end_date=args.end_date, history= ntrain + args.lookback)
             end_idxs = torch.arange(args.ntrain, data.shape[0],
                        int((data.shape[0]-args.ntrain)/args.ntimes))
 
@@ -116,7 +111,7 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--end_date",
-        default="none",
+        default=None,
     )
     parser.add_argument(
         "--lookback",

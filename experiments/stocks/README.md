@@ -14,7 +14,11 @@ python GPGenerator.py
     --n_test_times=100 ## number of test time points
 ```
 
+```sh
+# note test_tickers0, resolves to `data/test_tickers0.txt`
+python ForecastGenerator.py \
+    --ticker_fname test_tickers0 --end_date 
+python LSTMGenerator.py \
+    --ticker_fname test_tickers0
 
-experiments/stocks/LSTMGenerator.py
-experiments/stocks/GenerateMultiMeanPreds.py
-experiments/stocks/ForecastGenerator.py
+```
