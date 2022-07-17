@@ -42,3 +42,11 @@ Abandoned after learnign the project more closely. It's not a huge advance over 
 It looks like that one nice figure was picked as momentum with the right timeframe.
 
 The cross correlatioon one is interesting. But I would like to a see a timeseies showing what i learnt from each.
+
+# 2022-07-17 21:07:50
+
+Tried again
+
+It seems hard to get it to capture the vol in stock data with a differen't freq.
+
+It's quite finicky to get each stage correct.
