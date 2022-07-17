@@ -1,3 +1,14 @@
+
+A fork to generate on random stock intervals (real data). Some examples:
+
+![](figs/output.png)
+![](figs/output2.png)
+![](figs/output3.png)
+
+
+----
+
+
 # Volt
 Public Implementation of 
 [*Volatility Based Kernels and Moving Average Means for Accurate Forecasting with Gaussian Processes*](https://arxiv.org/abs/2207.06544)
