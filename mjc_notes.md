@@ -33,3 +33,12 @@ tickers = ["MSFT", "AAPL", "XOM"] #, "TUR", "RSX", "EWY", "EWS", "VTIP", "TLT", 
 symbols = pdr.get_data_tiingo(tickers, api_key=api_key, start=start, end=end)
 symbols
 ```
+
+
+# 
+
+Abandoned after learnign the project more closely. It's not a huge advance over the compared models.
+
+It looks like that one nice figure was picked as momentum with the right timeframe.
+
+The cross correlatioon one is interesting. But I would like to a see a timeseies showing what i learnt from each.

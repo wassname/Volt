@@ -66,10 +66,10 @@ def LearnGPCV(train_x, train_y, train_iters=1000, printing=False, early_stopping
     
     return pred_scale
 
-def TrainVolModel(train_x, vol_path, train_iters=1000, printing=False, kernel = "bm"):
+def TrainVolModel(train_x, vol_path, train_iters=1000, printing=False, kernel = "bm", **kwargs):
     vol_lh = gpytorch.likelihoods.GaussianLikelihood().to(train_x.device)
     vol_lh.noise.data = torch.tensor([1e-2])
-    vol_model = BMGP(train_x, vol_path.log(), vol_lh, kernel=kernel).to(train_x.device)
+    vol_model = BMGP(train_x, vol_path.log(), vol_lh, kernel=kernel, **kwargs).to(train_x.device)
 #     vol_model.covar_module.raw_vol.data = torch.tensor([-3.])
 
     optimizer = torch.optim.Adam([

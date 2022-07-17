@@ -7,13 +7,13 @@ from botorch.models import KroneckerMultiTaskGP
 from voltron.kernels import BMKernel, FBMKernel
 
 class BMGP(ExactGP):
-    def __init__(self, train_x, train_y, likelihood, kernel="bm"):
+    def __init__(self, train_x, train_y, likelihood, kernel="bm", **kwargs):
         super(BMGP, self).__init__(train_x, train_y, likelihood)
         # self.mean_module = ConstantMean()
         if kernel == "bm":
-            self.covar_module = BMKernel()
+            self.covar_module = BMKernel(**kwargs)
         elif kernel == "fbm":
-            self.covar_module = FBMKernel()
+            self.covar_module = FBMKernel(**kwargs)
             
         self.scaling = (train_x[1] - train_x[0])#.item()
 
