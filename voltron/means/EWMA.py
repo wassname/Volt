@@ -51,6 +51,7 @@ class EWMAMean(Mean):
         elif torch.equal(x.squeeze(), self.train_x.squeeze()):
             return ewma[..., :-1].type(torch.FloatTensor).to(self.train_x.device)
         else:
+            return ewma[..., -1:].repeat(len(x)).type(torch.FloatTensor).to(self.train_x.device)
             return ewma.type(torch.FloatTensor).to(self.train_x.device)
         
         
